@@ -25,9 +25,9 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         })
         
         // Configure test device for AdMob
-        let testDeviceID = "aada182688b00b9efa03807b9989fd14"
-        MobileAds.shared.requestConfiguration.testDeviceIdentifiers = [testDeviceID]
-        print("📱 AdMob: Test device configured - \(testDeviceID)")
+        // Add your test device ID here when testing
+        // MobileAds.shared.requestConfiguration.testDeviceIdentifiers = ["YOUR_TEST_DEVICE_ID"]
+        print("📱 AdMob: Configure test devices if needed")
         
         // Load initial ad after configuration
         Task { @MainActor in

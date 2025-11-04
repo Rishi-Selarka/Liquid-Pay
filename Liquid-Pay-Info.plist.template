@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>FirebaseAuthRedirect</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>app-1-YOUR_SENDER_ID-ios-YOUR_APP_ID</string>
+			</array>
+		</dict>
+	</array>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+		<string>push-to-talk</string>
+	</array>
+	<key>NSCameraUsageDescription</key>
+	<string>We need camera access to scan QR codes for payments</string>
+	<key>NSContactsUsageDescription</key>
+	<string>We need access to your contacts to make payments easily</string>
+	<key>GADApplicationIdentifier</key>
+	<string>YOUR_ADMOB_APP_ID</string>
+	<!-- Temporarily disabled to use test ad unit ID -->
+	<!-- <key>GADInterstitialAdUnitID</key>
+	<string>YOUR_ADMOB_INTERSTITIAL_AD_UNIT_ID</string> -->
+</dict>
+</plist>
+

@@ -20,5 +20,12 @@ Pods/
 
 # Markdown (do not push docs)
 *.md
+!README.md
+!README-SETUP.md
+
+# Secrets and API Keys
+GoogleService-Info.plist
+**/GoogleService-Info.plist
+Liquid-Pay-Info.plist
 
 
