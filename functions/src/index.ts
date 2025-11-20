@@ -37,16 +37,24 @@ app.use(express.json({ verify: (req: any, _res, buf) => (req.rawBody = buf) }));
 app.post("/createOrder", async (req: Request, res: Response) => {
   try {
     const { keyId, keySecret } = getConfig();
+    if (!keyId || !keySecret) {
+      logger.error("Missing Razorpay credentials in getConfig()");
+      return res.status(500).json({ error: "Server configuration error: Missing Razorpay credentials" });
+    }
+    logger.info(`Creating order with keyId: ${keyId.substring(0, 10)}...`);
     const { amount, currency = "INR", receipt = `rcpt_${Date.now()}`, notes = {} } = req.body || {};
     const amt = Number(amount);
     if (!amt || amt < 1) return res.status(400).json({ error: "Invalid amount" });
 
     const rzp = new Razorpay({ key_id: keyId, key_secret: keySecret });
     const order = await rzp.orders.create({ amount: amt, currency, receipt, notes });
+    logger.info(`Order created successfully: ${order.id}`);
     return res.json({ orderId: order.id, amount: order.amount, currency: order.currency, keyId });
   } catch (e: any) {
     logger.error("createOrder error", e);
-    return res.status(500).json({ error: e?.message || "Server error" });
+    const errorMsg = e?.message || e?.error?.description || "Server error";
+    const statusCode = e?.statusCode || e?.error?.code === "BAD_REQUEST_ERROR" ? 401 : 500;
+    return res.status(statusCode).json({ error: errorMsg });
   }
 });
 

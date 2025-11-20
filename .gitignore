@@ -18,14 +18,31 @@ Pods/
 .cursor/
 .cursorignore
 
-# Markdown (do not push docs)
+# Markdown files - exclude all documentation
 *.md
-!README.md
-!README-SETUP.md
 
-# Secrets and API Keys
+# Secrets and API Keys - NEVER COMMIT THESE
 GoogleService-Info.plist
 **/GoogleService-Info.plist
 Liquid-Pay-Info.plist
+**/Liquid-Pay-Info.plist
+
+# Firebase local config (may contain project-specific data)
+.firebaserc.local
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+*.env
+secrets.json
+*.secrets
+
+# Functions runtime config (may contain secrets)
+functions/.runtimeconfig.json
+functions/.env*
 
 

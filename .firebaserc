@@ -1,6 +1,7 @@
 {
   "projects": {
-    "default": "liquid-pay-e13e4"
+    "default": "liquid-pay-e13e4",
+    "Liquid Pay": "liquid-pay-8c924"
   },
   "targets": {},
   "etags": {}
